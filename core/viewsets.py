@@ -1,7 +1,7 @@
 from urllib import request
 
 from rest_framework import viewsets
-from core import models, serializers
+from core import models, serializers, filters
 from rest_framework.decorators import action
 
 from core.params_serializers import ZoneParamsSerializer, CityParamsSerializer
@@ -15,6 +15,7 @@ class StateViewSet(viewsets.ModelViewSet):
 class CityViewSet(viewsets.ModelViewSet):
     queryset = models.City.objects.select_related('state').all()
     serializer_class = serializers.CitySerializer
+    filterset_class = filters.CityFilter
 
     @action(detail=False, methods=['GET'])
     def get_city_by_state_name(self, request, *args, **kwargs):
