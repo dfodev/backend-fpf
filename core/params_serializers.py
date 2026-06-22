@@ -7,3 +7,7 @@ class ZoneParamsSerializer(serializers.Serializer):
 
 class CityParamsSerializer(serializers.Serializer):
     state_name = serializers.CharField(required=True)
+
+
+class StateByParamsSerializer(serializers.Serializer):
+    name = serializers.CharField(required=True)

@@ -19,6 +19,9 @@ class State(ModelBase):
     class Meta:
         db_table = 'state'
 
+    def __str__(self):
+        return self.name
+
 
 class City(ModelBase):
     name = models.CharField(db_column='name', null=False, blank=False, max_length=64)
